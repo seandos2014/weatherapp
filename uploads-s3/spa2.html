@@ -347,12 +347,12 @@ text-align: center;
     </div>
                       <div id="page"> 
                           <div class="div-block-top">
-                             <form action="#">
+                             <div class="search-form" onsubmit="handleSubmit()">
                               <span class="search-span" style="display: none;"> 
                               <button class="search-box" style="background-color: green;color: white;" onclick="handleSearch()">Go</button>
                               <input class="search-box" type="text" placeholder="you can also search city..." id="search_value"/>
                               </span>
-                              </form>
+                            </div>
                              <p class="t_heading"></p>
                             <div class="t_row"><div class="t_col">
 
@@ -643,6 +643,14 @@ const handle_col3 = () => {
   document.getElementById('search_value').value="";
   col1_actv=true;col2_actv=false;col3_act=false;last_col1=search;
   change_pointer();handleHide();}
+
+ const handleSubmit = () => {
+  document.getElementsByClassName("search-form")[0].addEventListener(
+   "onsubmit", 
+   function(event){
+    event.preventDefault();
+   } 
+  );}
 
 const change_pointer = () => {
   if(col1_actv){
